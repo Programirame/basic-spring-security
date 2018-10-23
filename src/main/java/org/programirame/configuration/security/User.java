@@ -1,12 +1,14 @@
-package org.programirame.models;
+package org.programirame.configuration.security;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
-public class AppUser {
+@Table(name = "app_user")
+public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -14,9 +16,9 @@ public class AppUser {
     private String username;
     private String password;
 
-    public AppUser() {}
+    User() {}
 
-    public AppUser(String username, String password) {
+    User(String username, String password) {
         this.username = username;
         this.password = password;
     }

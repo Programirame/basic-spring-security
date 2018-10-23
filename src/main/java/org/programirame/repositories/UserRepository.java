@@ -1,12 +1,12 @@
 package org.programirame.repositories;
 
-import org.programirame.models.AppUser;
+import org.programirame.configuration.security.User;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface UserRepository extends CrudRepository<AppUser, Long>{
+public interface UserRepository extends CrudRepository<User, Long>{
 
-    AppUser findByUsername(String userName);
+    User findByUsername(String userName);
 
 }

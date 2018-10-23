@@ -1,6 +1,5 @@
-package org.programirame.configuration;
+package org.programirame.configuration.security;
 
-import org.programirame.models.AppUser;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -12,10 +11,10 @@ import java.util.List;
 public class UserDetailsImplementation implements UserDetails {
 
     private List<GrantedAuthority> authorities = AuthorityUtils.createAuthorityList("ROLE_USER");
-    private AppUser appUser;
+    private User user;
 
-    public UserDetailsImplementation(AppUser appUser) {
-        this.appUser = appUser;
+    public UserDetailsImplementation(User user) {
+        this.user = user;
     }
 
     @Override
@@ -26,14 +25,13 @@ public class UserDetailsImplementation implements UserDetails {
 
     @Override
     public String getPassword() {
-
-        return appUser.getPassword();
+        return user.getPassword();
     }
 
     @Override
     public String getUsername() {
 
-        return appUser.getUsername();
+        return user.getUsername();
     }
 
     @Override

@@ -1,7 +1,6 @@
 package org.programirame;
 
-import org.programirame.models.AppUser;
-import org.programirame.repositories.UserRepository;
+import org.programirame.configuration.security.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -12,7 +11,7 @@ import javax.annotation.PostConstruct;
 public class DemoApplication {
 
 	@Autowired
-	private UserRepository userRepository;
+	private UserService userService;
 
 	public static void main(String[] args) {
 		SpringApplication.run(DemoApplication.class, args);
@@ -20,7 +19,7 @@ public class DemoApplication {
 
 	@PostConstruct
 	public void addUsers() {
-		userRepository.save(new AppUser("userOne", "programirame"));
-		userRepository.save(new AppUser("userTwo", "programirame"));
+        userService.createUser("userOne", "programirame");
+        userService.createUser("userTwo", "programirame");
 	}
 }

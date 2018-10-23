@@ -1,4 +1,4 @@
-package org.programirame.configuration;
+package org.programirame.configuration.security;
 
 import org.programirame.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
